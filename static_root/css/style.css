@@ -33,6 +33,11 @@ p {font-size: 16px;}
     color: #fff;
 }
 
+.bg-6 a {
+    color: #1200debf;
+    /*font-size: 16px;*/
+}
+
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -247,9 +252,27 @@ footer p {
 }
 
 .ion-social-instagram:hover {
-    color: #517fa4;
+    color: #a048a4;
 }
 
 .ion-email:hover {
     color: #ffd548;
+}
+
+
+
+/* Nav_info */
+
+
+/**********************/
+/* Project Info Pages */
+/**********************/
+
+.brightness {
+    font-size: 16px;
+    /*background-color: white;*/
+    /*display: inline-block;*/
+}
+.brightness img:hover {
+    opacity: .5;
 }
