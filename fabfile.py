@@ -32,11 +32,11 @@ def _get_latest_source():
 
 
 def _update_virtualenv():
-    if not exists('venv/bin/pip'):
-        run(f'python3.7 -m venv venv')
+    if not exists('.venv/bin/pip'):
+        run(f'python3.7 -m venv .venv')
 
-    run('./venv/bin/pip install --upgrade pip')
-    run('./venv/bin/pip install -r requirements.txt')
+    run('./.venv/bin/pip install --upgrade pip')
+    run('./.venv/bin/pip install -r requirements.txt')
 
 
 def _create_or_update_dotenv():
@@ -52,11 +52,11 @@ def _create_or_update_dotenv():
 
 
 def _update_static_files():
-    run('./venv/bin/python manage.py collectstatic --noinput')
+    run('./.venv/bin/python manage.py collectstatic --noinput')
 
 
 def _update_database():
-    run('./venv/bin/python manage.py migrate --noinput')
+    run('./.venv/bin/python manage.py migrate --noinput')
 
 
 def _restart_gunicorn():
@@ -64,4 +64,8 @@ def _restart_gunicorn():
 
 
 def _stash_git():
-    run('git stash')
+    try:
+        run('git stash')
+    # This happens if it is first time deploying. There is no git to stash.
+    except:
+        pass
